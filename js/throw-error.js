@@ -22,5 +22,14 @@ let fn = () => {
 try {
   fn();
 } catch (e) {
-  console.log(`${e.name} (${e.errorCode}): ${e.message}`);
+  if (e instanceof InvalidFormDataError) {
+    switch (e.errorCode) {
+      case (42): {
+        console.log(`${e.name} (${e.errorCode}): ${e.message}`);
+
+        break;
+      }
+    }
+    
+  }
 }
